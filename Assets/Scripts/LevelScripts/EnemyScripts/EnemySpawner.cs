@@ -54,8 +54,6 @@ public class EnemySpawner : MonoBehaviour
         GameObject enemy = ObjectPooler.SharedInstance.GetPooledObject(index);
         enemy.SetActive(true);
         enemy.transform.position = randomPosition;
-
-        Debug.Log(enemy);
     }
 
     private IEnumerator TryAgain()

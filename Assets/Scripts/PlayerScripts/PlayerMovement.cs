@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    private PlayerStats _playerStats;
+
     private bool _isMoving;  //Bool to check if the player is allowed to move
+
+    private void OnEnable()
+    {
+        _playerStats = GetComponent<PlayerStats>();
+    }
+
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -28,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target.z = transform.position.z;
 
-        transform.position = Vector3.MoveTowards(transform.position, target, _speed * Time.deltaTime); // Player Movement
+        transform.position = Vector3.MoveTowards(transform.position, target, _playerStats.Speed * Time.deltaTime); // Player Movement
 
         transform.up = target.normalized;  // Player rotation
     }

@@ -7,6 +7,11 @@ public class SceneFader : MonoBehaviour
 
     private string _sceneName;
 
+    private void OnEnable()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     public void FadeIn(string sceneName)
     {
         _sceneName = sceneName;
