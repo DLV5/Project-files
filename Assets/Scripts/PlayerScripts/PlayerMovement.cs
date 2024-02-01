@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_isMoving)
             return;
+
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target.z = transform.position.z;
 
